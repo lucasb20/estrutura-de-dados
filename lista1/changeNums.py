@@ -19,6 +19,7 @@ def inverte(n, i=0):
         return i*10+n
     return inverte(n//10, i*10 + n%10)
 
+
 print(zeraPares(1234))
 print(removeImpares(1234))
 print(inverte(1234))

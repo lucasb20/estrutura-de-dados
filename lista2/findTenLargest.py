@@ -16,6 +16,7 @@ def findTenLargest(array):
 
     return maiores
 
+
 array = [random.randint(0,100) for _ in range(25)]
 print(array)
 print(findTenLargest(array))

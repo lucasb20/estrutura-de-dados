@@ -3,13 +3,13 @@ import LinkedList
 def interlaceLists(list1, list2):
     l = LinkedList.LinkedList()
     curr = list1.head
+    second = False
     while curr != None:
         l.insertAtEnd(curr.data)
         curr = curr.next
-    curr = list2.head
-    while curr != None:
-        l.insertAtEnd(curr.data)
-        curr = curr.next
+        if curr == None and not second:
+            curr = list2.head
+            second = True
     return l
 
 list1 = LinkedList.LinkedList()

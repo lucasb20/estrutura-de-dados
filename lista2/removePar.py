@@ -1,6 +1,6 @@
 import LinkedList
 
-def removePar(list : LinkedList.LinkedList):
+def removePar(list):
     prev = list.head
     curr = prev.next
     while curr != None:
@@ -10,7 +10,6 @@ def removePar(list : LinkedList.LinkedList):
         else:
             prev = prev.next
             curr = curr.next
-
             
 
 l = LinkedList.LinkedList()

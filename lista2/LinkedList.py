@@ -3,6 +3,9 @@ class Node:
     self.data = data
     self.next = next
 
+  def __str__(self):
+    return self.data.__str__()
+
 class LinkedList(object):
   def __init__(self):
     self.length = 0
@@ -86,15 +89,13 @@ class LinkedList(object):
       previousNode.next = None
       self.length -=1
  
-  def print(self):
-    if self.length != 0:
-      pos = 0
-      current = self.head
-      while current != None:        
-        print("Node %d has value %s"%(pos, current.data))
-        pos +=1
-        if pos == self.length : return
-        current = current.next
+  def __str__(self):
+    array = []
+    current = self.head
+    while current != None:        
+      array.append(current.data)
+      current = current.next
+    return array.__str__()
 
   def getNodeAtPosition(self, index):
     if self.length != 0:

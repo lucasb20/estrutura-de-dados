@@ -97,6 +97,15 @@ class LinkedList(object):
       current = current.next
     return array.__str__()
 
+  def circularPrint(self):
+    array = []
+    curr = self.head
+    while True:
+      array.append(curr.data)
+      curr = curr.next
+      if curr == self.head: break
+    return array.__str__()
+
   def getNodeAtPosition(self, index):
     if self.length != 0:
       current = self.head

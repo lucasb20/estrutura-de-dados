@@ -12,9 +12,9 @@ def exec(op1, op2, op):
     else:
         return op1 / op2
 
-def solvePosfix(posfix):
+def solvePostfix(postfix):
     stack = Stack()
-    for c in posfix:
+    for c in postfix:
         if c in "*/+-":
             op1 = stack.pop()
             op2 = stack.pop()
@@ -24,4 +24,4 @@ def solvePosfix(posfix):
     return stack.pop()
 
 
-print(solvePosfix("1234-*+5+"))
+print(solvePostfix("1234-*+5+"))

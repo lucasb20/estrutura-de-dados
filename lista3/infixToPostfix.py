@@ -9,8 +9,8 @@ def infixToPostfix(infix):
         if c in "(":
             stack.push(c)
         elif c in ")":
-            while stack.peek() != "(":
-                postfix+=stack.pop()
+            while (k := stack.pop()) != "(":
+                postfix += k
         elif c in "+-":
             while not stack.isEmpty() and stack.peek() != "(":
                 postfix+=stack.pop()
@@ -23,11 +23,9 @@ def infixToPostfix(infix):
             postfix+=c
 
     while not stack.isEmpty():
-        if stack.peek() not in "()": postfix+=stack.pop()
-        else: stack.pop()
+        postfix+=stack.pop()
 
     return postfix
-
 
 print(infixToPostfix("A*B-(C+D)+E"))
 print(infixToPostfix("A+B*(C-D)+E"))

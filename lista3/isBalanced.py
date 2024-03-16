@@ -3,14 +3,11 @@ from Stack import Stack
 
 
 def isBalanced(expression):
-    opening = ["{", "[", "("]
-    closing = ["}", "]", ")"]
-    
     stack = Stack()
     for letter in expression:
-        if letter in opening:
+        if letter in "{[(":
             stack.push(letter)
-        elif letter in closing:
+        elif letter in "}])":
             if letter == "}" and stack.pop() != "{":
                 return False
             elif letter == "]" and stack.pop() != "[":

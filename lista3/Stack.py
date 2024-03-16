@@ -19,3 +19,6 @@ class Stack:
     
     def isEmpty(self):
         return self.count == 0
+
+    def __str__(self):
+        return self.A.__str__()

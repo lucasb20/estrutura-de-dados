@@ -2,32 +2,32 @@
 from Stack import Stack
 
 
-def precedence(char1, char2):
-    ops = "()*/+-"
-    return ops.index(char1) < ops.index(char2)
-
-def infixaToPosfixa(exp):
+def infixToPosfix(infix):
+    posfix = ""
     stack = Stack()
-    posfixa = ""
-
-    for c in exp:
-        if c in "()*/+-":
-            while not stack.isEmpty() and precedence(c,stack.peek()):
-                if stack.peek() not in "()":
-                    posfixa+=stack.pop()
-                else:
-                    stack.pop()
-                if c == "(": break
+    for c in infix:
+        if c in "(":
+            stack.push(c)
+        elif c in ")":
+            while stack.peek() != "(":
+                posfix+=stack.pop()
+        elif c in "+-":
+            while not stack.isEmpty() and stack.peek() != "(":
+                posfix+=stack.pop()
+            stack.push(c)
+        elif c in "*/":
+            while not stack.isEmpty() and (stack.peek() not in "(+-"):
+                posfix+=stack.pop()
             stack.push(c)
         else:
-            posfixa+=c
+            posfix+=c
 
     while not stack.isEmpty():
-        if stack.peek() not in "()":
-            posfixa+=stack.pop()
-        else:
-            stack.pop()
-    return posfixa
+        if stack.peek() not in "()": posfix+=stack.pop()
+        else: stack.pop()
+
+    return posfix
 
 
-print(infixaToPosfixa("A*B-(C+D)+E"))
+print(infixToPosfix("A*B-(C+D)+E"))
+print(infixToPosfix("A+B*(C-D)+E"))

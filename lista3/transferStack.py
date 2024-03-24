@@ -1,13 +1,14 @@
 
 from Stack import Stack
 
-def transferStack(s : Stack, t : Stack):
+def transferStack(s, t):
     aux = Stack()
     print(s, t, aux)
     while t.pop() != None:
         pass
     while not s.isEmpty():
         t.push(s.pop())
+
 
 s = Stack()
 t = Stack()

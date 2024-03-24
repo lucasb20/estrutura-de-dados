@@ -1,7 +1,7 @@
 
 from Stack import Stack
 
-def emptyStack(stack : Stack):
+def emptyStack(stack):
     if stack.pop() != None:
         emptyStack(stack)
 

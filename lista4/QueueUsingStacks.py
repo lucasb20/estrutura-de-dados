@@ -6,8 +6,8 @@ class Queue:
         self.rear = Stack()
         self.front = Stack()
 
-    def enqueue(self, item):
-        self.rear.push(item)
+    def enqueue(self, data):
+        self.rear.push(data)
 
     def dequeue(self):
         if self.front.isEmpty():

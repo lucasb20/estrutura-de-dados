@@ -4,12 +4,12 @@ from StackUsingQueues import Stack
 
 
 def reverseKQueue(queue, k):
-    s = Stack(queue.size_max)
+    stack = Stack(queue.size_max)
 
     for _ in range(k):
-        s.push(queue.dequeue())
+        stack.push(queue.dequeue())
     for _ in range(k):
-        queue.enqueue(s.pop())
+        queue.enqueue(stack.pop())
 
     count = queue.count - k
 

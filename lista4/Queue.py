@@ -21,5 +21,11 @@ class Queue:
             self.front= (self.front + 1) % self.size_max
             return data
 
+    def size(self):
+        return self.count
+
+    def isEmpty(self):
+        return self.count == 0
+
     def __str__(self):
         return self.A.__str__()

@@ -9,7 +9,7 @@ class Stack:
         self.queue1.enqueue(element)
 
     def pop(self):
-        if self.empty():
+        if self.isEmpty():
             return None
 
         while self.queue1.size() > 1:
@@ -23,7 +23,7 @@ class Stack:
         return data
 
     def peek(self):
-        if self.empty():
+        if self.isEmpty():
             return None
 
         while self.queue1.size() > 1:

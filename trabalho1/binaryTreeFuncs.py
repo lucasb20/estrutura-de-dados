@@ -1,5 +1,5 @@
 
-from node import Node
+from Node import Node
 from util import Queue
 
 def nodeCount(root):

@@ -28,4 +28,11 @@ class Queue:
         return self.count == 0
 
     def __str__(self):
-        return self.A.__str__()
+        elements = []
+        while not self.isEmpty():
+            elements.append(self.dequeue())
+        
+        for element in elements:
+            self.enqueue(element)
+
+        return elements.__str__()

@@ -3,7 +3,7 @@ from util import Stack, Queue
 
 
 def interleaver(s):
-    q = Queue(s.count*2)
+    q = Queue(s.count)
 
     count = s.count // 2
 

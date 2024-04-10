@@ -1,10 +1,5 @@
 
-import sys
-import os
-
-sys.path.append(os.path.join(os.path.dirname(__file__),".."))
-
-from lista3.Stack import Stack
+from util import Stack
 
 
 def isPalindrome(expression):

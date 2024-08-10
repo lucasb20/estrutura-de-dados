@@ -1,6 +1,6 @@
 
 class Node():
-    def __init__(self, key = None):
+    def __init__(self, key):
         self.key = key
         self.parent = None
         self.left = None
@@ -11,7 +11,7 @@ class Node():
 
 class AVLTree():
     def __init__(self, key = None):
-        self.root = Node(key)
+        self.root = Node(key) if key is not None else None
 
     def insert(self, key):
         if self.root is None:
@@ -36,8 +36,16 @@ class AVLTree():
                 node = node.right
 
 def printTree(root : Node):
-    if not root:
-        return
-    printTree(root.left)
-    print(root)
-    printTree(root.right)
+    if root:
+        printTree(root.left)
+        print(root)
+        printTree(root.right)
+
+if __name__ == '__main__':
+    avl = AVLTree()
+    avl.insert(1)
+    avl.insert(2)
+    avl.insert(3)
+    avl.insert(4)
+    avl.insert(5)
+    printTree(avl.root)

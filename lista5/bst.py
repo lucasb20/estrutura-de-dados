@@ -48,16 +48,27 @@ def insert(root: Node, key):
         root.right = insert(root.right, key)
         return root
 
+def findMin(root : Node):
+    curr = root
+    while curr.left:
+        curr = curr.left
+    return curr
+
 def remove(root: Node, key):
     if not root:
         return None
-    if root.key == key:
-        return None
-    elif key < root.key:
+    if key < root.key:
         root.left = remove(root.left, key)
-        return root
-    else:
+    elif key > root.key:
         root.right = remove(root.right, key)
+    else:
+        if not root.left:
+            return root.right
+        elif not root.right:
+            return root.left
+        successor = findMin(root.right)
+        root.key = successor.key
+        root.right = remove(root.right, successor.key)
         return root
 
 if __name__ == '__main__':

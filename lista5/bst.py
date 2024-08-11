@@ -16,14 +16,13 @@ def TreeToArray(root : Node):
     arr : list[Node] = list()
     if not root: return arr
     arr.append(root)
-    i = 0
-    while i < len(arr):
+    i = -1
+    while i + 1 < len(arr):
+        i+=1
         if arr[i] is None:
-            i+=1
             continue
         arr.append(arr[i].left)
         arr.append(arr[i].right)
-        i+=1
     return arr
 
 def search(root : Node, key):

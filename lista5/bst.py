@@ -4,6 +4,11 @@ class Node():
         self.left : Node = None
         self.right : Node = None
 
+    def __str__(self):
+        left = self.left.key if self.left else None
+        right = self.right.key if self.right else None
+        return f'Node(key={self.key}, left={left}, right={right})'
+
 def search(root : Node, key):
     if not root:
         return False
@@ -14,10 +19,28 @@ def search(root : Node, key):
     else:
         return search(root.right, key)
 
+def insert(root: Node, key):
+    if not root:
+        return Node(key)
+    if root.key == key:
+        return root
+    elif key < root.key:
+        root.left = insert(root.left, key)
+        return root
+    else:
+        root.right = insert(root.right, key)
+        return root
+
 if __name__ == '__main__':
-    node = Node(12)
-    node.left = Node(6)
-    node.left.right = Node(8)
-    node.right = Node(15)
+    node = insert(None, 12)
+    insert(node, 6)
+    insert(node, 8)
+    insert(node, 15)
+    print(node)
+    print(node.left)
+    print(node.left.right)
+    print(node.right)
     for i in range(16):
-        print(f"{i}:{search(node, i)}")
+        res = search(node, i)
+        if res:
+            print(f"{i}:{res}")

@@ -48,6 +48,18 @@ def insert(root: Node, key):
         root.right = insert(root.right, key)
         return root
 
+def remove(root: Node, key):
+    if not root:
+        return None
+    if root.key == key:
+        return None
+    elif key < root.key:
+        root.left = remove(root.left, key)
+        return root
+    else:
+        root.right = remove(root.right, key)
+        return root
+
 if __name__ == '__main__':
     node = insert(None, 12)
     insert(node, 6)

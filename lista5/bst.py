@@ -8,6 +8,23 @@ class Node():
         left = self.left.key if self.left else None
         right = self.right.key if self.right else None
         return f'Node(key={self.key}, left={left}, right={right})'
+    
+    def __repr__(self):
+        return str(self.key)
+
+def TreeToArray(root : Node):
+    arr : list[Node] = list()
+    if not root: return arr
+    arr.append(root)
+    i = 0
+    while i < len(arr):
+        if arr[i] is None:
+            i+=1
+            continue
+        arr.append(arr[i].left)
+        arr.append(arr[i].right)
+        i+=1
+    return arr
 
 def search(root : Node, key):
     if not root:
@@ -36,11 +53,4 @@ if __name__ == '__main__':
     insert(node, 6)
     insert(node, 8)
     insert(node, 15)
-    print(node)
-    print(node.left)
-    print(node.left.right)
-    print(node.right)
-    for i in range(16):
-        res = search(node, i)
-        if res:
-            print(f"{i}:{res}")
+    print(TreeToArray(node))

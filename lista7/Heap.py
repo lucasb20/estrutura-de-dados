@@ -21,7 +21,6 @@ class Item:
 class Heap:
     def __init__(self):
         self.heapList = []
-        self.size = 0
     
     def parent(self, index):
         return (index - 1) // 2
@@ -32,10 +31,9 @@ class Heap:
         return 2*index + 2
 
     def hasLeft(self,index):
-        return self.leftChild(index) < self.size
-
+        return self.leftChild(index) < len(self.heapList)
     def hasRight(self,index):
-        return self.rightChild(index) < self.size
+        return self.rightChild(index) < len(self.heapList)
    
     def swap(self, i, j):
         self.heapList[i], self.heapList[j] = self.heapList[j], self.heapList[i]
@@ -61,20 +59,17 @@ class Heap:
 
     def add(self, key, value):
         self.heapList.append(Item(key, value))
-        if (self.size > 0):
-            self.upHeap(len(self.heapList)-1)
-        self.size += 1
+        if len(self.heapList) > 1:
+            self.upHeap(len(self.heapList) - 1)
 
     def min(self):
-        if self.size == 0:
-            raise IndexError
-        item = self.heapList[0]
-        return (item.key, item.value)
+        if len(self.heapList) > 0:
+            item = self.heapList[0]
+            return item
 
     def removeMin(self):
-        if self.size == 0:
-            raise IndexError
-        self.swap(0, len(self.heapList) - 1)
-        item = self.heapList.pop()
-        self.downHeap(0)
-        return (item.key, item.value)
+        if len(self.heapList) > 0:
+            self.swap(0, len(self.heapList) - 1)
+            item = self.heapList.pop()
+            self.downHeap(0)
+            return item

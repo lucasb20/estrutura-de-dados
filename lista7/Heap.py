@@ -11,6 +11,9 @@ class Item:
        
     def __gt__(self,other):
         return self.key > other.key
+    
+    def __str__(self):
+        return f"({self.key}, {self.value})"
 
 class Heap:
     def __init__(self):

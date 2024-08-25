@@ -13,7 +13,10 @@ class Item:
         return self.key > other.key
     
     def __str__(self):
-        return f"({self.key}, {self.value})"
+        return f"(key={self.key}, value={self.value})"
+    
+    def __repr__(self):
+        return str(self)
 
 class Heap:
     def __init__(self):

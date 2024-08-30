@@ -6,7 +6,7 @@ class HashTable:
             self.table.append(list())
 
     def func_hash(self, key):
-        return (3*key + 5) % 11
+        return (3*key + 5) % len(self.table)
     
     def insert(self, key):
         index = self.func_hash(key)

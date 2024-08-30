@@ -7,7 +7,6 @@ class HashTable(Base):
     
     def insert(self, key):
         index = self.func_hash(key)
-        print("key:", key, "index:", index)
         k = 0
         while k != len(self.table):
             if self.table[index] is None:
